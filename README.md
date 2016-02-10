@@ -7,6 +7,10 @@ The tokenfilter has two modes: one for indexing, one for searching, the only
 difference is that in searching mode the wordending char is not set on the
 **last** word because we guess it's the beginning of the word being typed.
 
+## Requirements.
+
+ - ElasticSearch 2.2
+
 ## Install
 
 First, make sure `ES_HOME` is set. If not, export it, something like this:
