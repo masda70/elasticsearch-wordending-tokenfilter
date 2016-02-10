@@ -1,3 +1,6 @@
+/*
+ *
+ */
 package biz.ixxi.analysis.wordending;
 
 import static org.junit.Assert.assertEquals;
@@ -9,26 +12,20 @@ import org.apache.lucene.analysis.TokenStream;
 import org.apache.lucene.analysis.Tokenizer;
 import org.apache.lucene.analysis.core.WhitespaceTokenizer;
 import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-import org.elasticsearch.common.lucene.Lucene;
 
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.Reader;
 import java.io.StringReader;
 
-import static org.hamcrest.Matchers.equalTo;
-
-
-public class WordEndingFilterTest {
+public class WordEndingFilterTests {
 
     @Test
     public void defaultModeTest() throws IOException {
         Analyzer analyzer = new Analyzer() {
             @Override
-            protected TokenStreamComponents createComponents(String fieldName,
-                                                             Reader reader) {
-                Tokenizer t = new WhitespaceTokenizer(Lucene.VERSION, reader);
+            protected TokenStreamComponents createComponents(String fieldName) {
+                Tokenizer t = new WhitespaceTokenizer();
                 return new TokenStreamComponents(t, new WordEndingFilter(t, "default"));
             }
         };
@@ -52,9 +49,8 @@ public class WordEndingFilterTest {
     public void defaultModeOneTokenTest() throws IOException {
         Analyzer analyzer = new Analyzer() {
             @Override
-            protected TokenStreamComponents createComponents(String fieldName,
-                                                             Reader reader) {
-                Tokenizer t = new WhitespaceTokenizer(Lucene.VERSION, reader);
+            protected TokenStreamComponents createComponents(String fieldName) {
+                Tokenizer t = new WhitespaceTokenizer();
                 return new TokenStreamComponents(t, new WordEndingFilter(t, "default"));
             }
         };
@@ -72,9 +68,8 @@ public class WordEndingFilterTest {
     public void autocompleteModeTest() throws IOException {
         Analyzer analyzer = new Analyzer() {
             @Override
-            protected TokenStreamComponents createComponents(String fieldName,
-                                                             Reader reader) {
-                Tokenizer t = new WhitespaceTokenizer(Lucene.VERSION, reader);
+            protected TokenStreamComponents createComponents(String fieldName) {
+                Tokenizer t = new WhitespaceTokenizer();
                 return new TokenStreamComponents(t, new WordEndingFilter(t, "autocomplete"));
             }
         };
@@ -98,9 +93,8 @@ public class WordEndingFilterTest {
     public void autocompleteModeOneTokenTest() throws IOException {
         Analyzer analyzer = new Analyzer() {
             @Override
-            protected TokenStreamComponents createComponents(String fieldName,
-                                                             Reader reader) {
-                Tokenizer t = new WhitespaceTokenizer(Lucene.VERSION, reader);
+            protected TokenStreamComponents createComponents(String fieldName) {
+                Tokenizer t = new WhitespaceTokenizer();
                 return new TokenStreamComponents(t, new WordEndingFilter(t, "autocomplete"));
             }
         };

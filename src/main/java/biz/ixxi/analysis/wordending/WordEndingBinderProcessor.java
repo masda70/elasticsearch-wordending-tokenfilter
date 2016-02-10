@@ -1,3 +1,7 @@
+/*
+ *
+ */
+
 package biz.ixxi.analysis.wordending;
 
 import org.elasticsearch.index.analysis.AnalysisModule;
